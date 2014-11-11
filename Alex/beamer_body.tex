@@ -1,0 +1,189 @@
+\input{beamer_head}
+
+% 使用 \part,\section,\subsection 等命令组织文档结构
+% 使用 \frame 命令制作幻灯片
+
+\begin{document}
+
+\logo{\includegraphics[height=0.09\textwidth]{ihs.jpg}}
+\title[Beamer模版演示]{使用基于\XeTeX 的Beamer制作幻灯片的模版}
+\author[Yixf]{Yi Xianfu}
+\institute[IHS, SIBS, CAS]{Institute of Health Sciences\\ Shanghai Institutes for Biological Sciences\\ Chinese Academy of Sciences}
+\date{\today}
+
+% 定义目录页
+\AtBeginPart{
+  \frame{
+    \frametitle{\partpage}
+    \begin{multicols}{2}
+% 如果目录过长，可以打开这个选项分两栏显示
+      \tableofcontents
+% 使用这个命令自动生成目录
+    \end{multicols}
+  }  
+}
+
+% 在每个Section前都会加入的Frame
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{提纲}
+	\setcounter{tocdepth}{2}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+% 在每个Subsection前都会加入的Frame
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+%\begin{frame}<handout:0>
+% handout:0 表示只在手稿中出现
+    \frametitle{提纲}
+	\setcounter{tocdepth}{2}
+    \tableofcontents[currentsection,currentsubsection]
+% 显示在目录中加亮的当前章节
+  \end{frame}
+}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}[plain]
+  \frametitle{提纲}
+  \setcounter{tocdepth}{2}
+  \tableofcontents
+\end{frame}
+
+\section{列表}
+\subsection{有序列表}
+\begin{frame}
+	\frametitle{有序列表}
+	  \begin{enumerate}[<+-|alert@+>]
+		  \item 有序列表一
+		  \item 有序列表二
+		  \item 有序列表三
+		  \item 有序列表四
+		  \item 有序列表五
+		  \item 有序列表六
+		  \item 有序列表七
+		  \item 有序列表八
+		  \item 有序列表九
+	  \end{enumerate}
+\end{frame}
+\subsection{无序列表}
+\begin{frame}
+	\begin{itemize}
+		\hilite <1> \item 无序列表一
+		\hilite <2-3> \item 无序列表二
+		\hilite <3> \item 无序列表三
+		\hilite <4-> \item 无序列表四
+		\hilite <5> \item 无序列表五
+		\hilite <-6> \item 无序列表六
+		\hilite <7> \item 无序列表七
+		\hilite <8> \item 无序列表八
+		\hilite <9> \item 无序列表九
+	\end{itemize}
+\end{frame}
+
+\section{图片}
+\begin{frame}
+	\frametitle{图片}
+	\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=8cm]{power.png}
+    \caption{Powered by}
+    \label{fig:power}
+    \end{figure}
+\end{frame}
+
+\section{表格}
+\begin{frame}
+	\frametitle{表格}
+    \begin{table}
+    \centering
+    \caption{一个表格示例}
+    \rowcolors[]{1}{blue!20}{blue!10}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \rowcolor{blue!50}学号&姓名&年龄&成绩\\
+    \hline
+    001 & 丁一 & 25 & 91\\
+    002 & 刘二 & 24 & 89\\
+    003 & 张三 & 25 & 90\\
+    004 & 李四 & 24 & 95\\
+    005 & 王五 & 25 & 93\\
+    006 & 赵六 & 26 & 88\\
+    007 & 钱七 & 25 & 86\\
+    008 & 王八 & 24 & 89\\
+    009 & 孙九 & 25 & 90\\
+    \hline
+    \end{tabular}
+    \end{table}
+\end{frame}
+
+\section{块状结构}
+\subsection{内置}
+\begin{frame}
+	\frametitle{block, definition, example}
+	\begin{block}{块}
+	这是一个block。
+	\end{block}
+	\pause
+	\begin{definition}{定义：}
+	这是一个definition。
+	\end{definition}
+	\pause
+	\begin{example}{实例：}
+	这是一个example。
+	\end{example}
+\end{frame}
+\subsection{自定义}
+\begin{frame}
+	\begin{beamercolorbox}[rounded=true,shadow=true,wd=12cm]{bgcolor}
+		这是一个自定义的彩色块状结构。
+	\end{beamercolorbox}
+\end{frame}
+
+\section{分栏}
+\begin{frame}
+	\frametitle{分栏}
+	\begin{columns}
+	\column{3cm}
+	这是第一栏的文字；栏宽3cm。
+	\column{5cm}
+	这是第二栏的文字；栏宽5cm。
+	\end{columns}
+\end{frame}
+
+\section{公式}
+\begin{frame}
+	\frametitle{质能方程}
+	\begin{equation}
+	E=mc^2
+	\label{emc}
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\section*{Acknowledgements}
+\begin{frame}
+	\frametitle{Powered by}
+	\begin{center}
+		\includegraphics[width=9cm]{power.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}[plain]
+	\begin{spacing}{1.5}
+	\begin{center}
+	\Huge{\textbf{Thanks for your attention!}}
+
+	\Huge{\textit{Any questions?}}
+\end{center}
+\end{spacing}
+\end{frame}
+
+\end{document}
