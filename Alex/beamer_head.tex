@@ -4,18 +4,20 @@
 %指定beamer的模式与主题
 \mode<presentation>
 {
-  \usetheme{Madrid}
-%\usetheme{Boadilla}
-%\usetheme{Antibes}
-%\usetheme{Berkeley}
+  \usetheme{CambridgeUS}
+%Good themes
 %\usetheme{CambridgeUS}
+%\usetheme{Antibes}
+%\usetheme{Madrid}
+%\usetheme{Berkeley}
+%\usetheme{Boadilla}
+
 %\usecolortheme{default}
 %\usecolortheme{orchid}
 %\usecolortheme{whale}
 %\usefonttheme{professionalfonts}
 }
 
-%\usetheme{Madrid}
 %这里还可以选择别的主题：Bergen, Boadilla, Madrid, AnnArbor, CambridgeUS, Pittsburgh, Rochester, Warsaw, ...
 %有导航栏的Antibes, JuanLesPins, Montpellier, ...
 %有内容的Berkeley, PaloAlto, Goettingen, Marburg, Hannover, ...
@@ -46,16 +48,17 @@
 
 % 设定英文字体
 \usepackage{fontspec}
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
+\setmainfont{DejaVu Sans}
+%\setmainfont{Times New Roman}
+%\setsansfont{Arial}
+%\setmonofont{Courier New}
 
 % 设定中文字体
 \usepackage[BoldFont,SlantFont,CJKchecksingle,CJKnumber]{xeCJK}
 %\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{Adobe Song Std}
-\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{WenQuanYi Micro Hei}
-\setCJKsansfont{Adobe Heiti Std}
-\setCJKmonofont{Adobe Fangsong Std}
+\setCJKmainfont[BoldFont={WenQuanYi Micro Hei},ItalicFont={WenQuanYi Micro Hei}]{WenQuanYi Micro Hei}
+\setCJKsansfont{WenQuanYi Micro Hei}
+\setCJKmonofont{WenQuanYi Micro Hei}
 \punctstyle{hangmobanjiao}
 
 \defaultfontfeatures{Mapping=tex-text}
@@ -66,6 +69,7 @@
 \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
 
 \usepackage{setspace}
+\usepackage{booktabs}
 \usepackage{colortbl,xcolor}
 \usepackage{hyperref}
 %\hypersetup{xetex,bookmarksnumbered=true,bookmarksopen=true,pdfborder=1,breaklinks,colorlinks,linkcolor=blue,filecolor=black,urlcolor=cyan,citecolor=green}
