@@ -1,34 +1,8 @@
-**这是这篇博客提到beamer模板的源文件** [Beamer](https://github.com/alex8866/Beamer)
-
 + ***aBeamerTemplate4SJTU:*** Clone from X-Wei's github: https://github.com/X-Wei/aBeamerTemplate4SJTU
 
 + ***Beamer_yixf:*** 从[Yixf’s blog](http://yixf.name/2011/06/21/%E4%BD%BF%E7%94%A8xetex%E7%9A%84beamer%E6%A8%A1%E7%89%88/)下载
 
-+ ***Alex:*** 根据aBeamerTemplate4SJTU, Beamer_yixf DIY的
-
-### 效果截图
-
-Beamer默认有5个主题，个人感觉还是不错的，下面是这几个主题的效果截图，我偏向于CambridgeUS主题, 看起来比较简介，鲜明.
-
-Antibes:
-
-![](./img/Antibes.png)
-
-Berkeley:
-
-![](./img/Berkeley.png)
-
-Boadilla:
-
-![](./img/Boadilla.png)
-
-CambridgeUS:
-
-![](./img/CambridgeUS.png)
-
-Madrid:
-
-![](./img/Madrid.png)
++ ***Alex:*** 根据aBeamerTemplate4SJTU, Beamer_yixf DIY的Emacs presentation
 
 **注意**
 

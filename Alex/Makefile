@@ -2,11 +2,11 @@
 # 运行环境：Linux、texlive2010(XeTeX)、evince 阅读器
 
 Compiler = xelatex
-Reader = evince
+Reader = okular
 
 Target = beamer_body.pdf
 Source = beamer_body.tex
-TmpFile = *.out *.log *.aux *.nav *.snm *.toc
+TmpFile = *.out *.log *.aux *.nav *.snm *.toc *.vrb
 
 $(Target): $(Source)
 	$(Compiler) $(Source)
