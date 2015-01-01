@@ -1,0 +1,1338 @@
+\input{beamer_head}
+
+
+\usepackage{bbding}% 手势 \HandRight \HandLeft %\FiveStar \FourStar \SixStar
+\newcommand{\handr}{\textcolor{magenta}{\HandRight}} % 自定义\handr
+
+% 黄老师模板里的内容
+\iffalse
+\setbeamertemplate{navigation symbols}{}
+\DeclareMathOperator{\arccot}{arccot}
+\def\hilite<#1>{%
+\temporal<#1>{\color{blue!35}}{\color{magenta}}%
+{\color{blue!75}}}
+\def\hidark<#1>{%
+\temporal<#1>{\color{black!35}}{\color{magenta}}%
+{\color{black!75}}}
+
+\usepackage{wasysym}
+\graphicspath{{figures/}}         %% 图片路径. 本文的图片都放在这个文件夹里了.
+\usepackage{mflogo}          % \MP 得 MetaPost 字样
+\fi
+
+\iffalse
+% beamer所有技巧:
+% 设置item中项目符号为大于号
+\begin{itemize}
+          \item[\(>\)] everydaylife product
+          \item[\(>\)] topic from your research group
+\end{itemize}
+
+% Text color
+\textcolor{orange}{WinEdt}
+\textcolor{gray}{WinEdt}
+\textcolor{brown}{WinEdt}
+\textcolor{red}{WinEdt}
+\textcolor{blue}{WinEdt}
+\textcolor{green}{WinEdt}
+
+% 取消导航
+%\setbeamertemplate{navigation symbols}{}
+
+% 定义颜色
+%\definecolor{blendedred}{rgb}{0.7,0.2,0.2} % use structure theme to change
+%\definecolor{beamer@blendedblue}{rgb}{0.2,0.2,0.7} % use structure theme to change
+
+% 设定结构的前景色
+%\setbeamercolor{structure}{fg=beamer@blendedred}
+
+%\usefonttheme[stillsansseriflarge,stillsansserifsmall]{serif}
+
+% 同一个位置动态显示两个block，用下面方法
+\begin{frame}
+     \only<1>{\begin{itemize}
+     \item item1
+     \item item2
+     \end{itemize}}
+
+     \only<2>{\begin{itemize}
+     \item item3
+     \item item4
+     \end{itemize}}
+\end{frame}
+
+方法2：
+\only<2>{
+\begin{exampleblock}{问与答}
+\alert{问:} 1
+\alert{答:} 1
+\end{exampleblock}}
+
+\only<3->{
+\begin{exampleblock}{问与答}
+\alert{问:}2
+\alert{答:}2
+\end{exampleblock}}
+
+% 字体颜色大小
+{\huge \emph{\textcolor{blue!80}{Thank  ~you!}}}\\
+
+% 设置返回button
+\hfill \hyperlink{target4}{\beamergotobutton{返回}}
+
+%字体背景
+\colorbox{yellow!85}{This is a test}
+
+% 设置手指标示:
+\item[\handr] 不可目中无人
+
+%url
+\url{http://www.ctex.org/}
+
+% block
+\begin{block}{}
+some text
+\end{block}
+
+% 以下命令中通过选择show或者hide控制相应节的显示
+\tableofcontents[currentsection,currentsubsection,subsectionstyle=show/show/hide]
+% 斜体字
+\emph{\decmagenta{6:00-6:30} 起床 \& 洗漱}\\
+\emph{\decmagenta{6:30-8:00} 看书}
+
+% 时间
+\date{\today}
+
+% 取消/显示导航条
+\setbeamertemplate{navigation symbols}{}
+
+% 设定不显示导航栏
+\setbeamertemplate{navigation symbols}{}
+
+% 设定底栏只显示页码
+%\setbeamertemplate{footline}[frame number]
+
+% 以下命令中通过选择show或者hide控制相应节的显示
+\tableofcontents[currentsection,currentsubsection,subsectionstyle=hide]
+
+% 描述列表环境
+\begin{description}
+    \item [孔]飞，飞
+    \item [丽]丽理
+\end{description}
+
+\fi
+%\setbeamercolor{frametitle}{fg=green}
+% 使用 \part,\section,\subsection,subsubsection 等命令组织文档结构
+% 使用 \frame 命令制作幻灯片
+\def\decred#1{{\color{red!75!black}#1}}
+\def\decblue#1{{\color{blue!75!black}#1}}
+\def\decmagenta#1{{\color{magenta!75!black}#1}}
+\begin{document}
+
+\logo{\includegraphics[height=0.09\textwidth]{lkong.png}}
+\title[\textcolor{red}{请遵守!}(依心而变)]{\textcolor{red}{Life Rules}}
+\author[智慧人生]{Lingfei Kong}
+\institute[Running]{未雨绸缪}
+\date{January 01, 2015}
+
+% 定义目录页
+\AtBeginPart{
+  \frame{
+    \frametitle{\partpage}
+    \begin{multicols}{2}
+% 如果目录过长，可以打开这个选项分两栏显示
+      \tableofcontents
+% 使用这个命令自动生成目录
+    \end{multicols}
+  }
+}
+
+%\AtBeginSsection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Agenda}
+%	\setcounter{tocdepth}{2}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+% 在每个Section前都会加入的Frame
+\iffalse
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Agenda}
+    \begin{multicols}{2}
+	\setcounter{tocdepth}{1}
+    \tableofcontents[currentsection]
+    \end{multicols}
+  \end{frame}
+}
+% 在每个Subsection前都会加入的Frame
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+%\begin{frame}<handout:0>
+% handout:0 表示只在手稿中出现
+    \frametitle{Agenda}
+    \begin{multicols}{2}
+	\setcounter{tocdepth}{2}
+    \tableofcontents[currentsection,currentsubsection]
+    \end{multicols}
+% 显示在目录中加亮的当前章节
+  \end{frame}
+}
+\fi
+\iffalse
+\AtBeginSubsubsection[]
+{
+  \begin{frame}<beamer>
+%\begin{frame}<handout:0>
+% handout:0 表示只在手稿中出现
+    \frametitle{Agenda}
+    \begin{multicols}{2}
+	\setcounter{tocdepth}{3}
+    \tableofcontents[currentsection,currentsubsection]
+    \end{multicols}
+% 显示在目录中加亮的当前章节
+  \end{frame}
+}
+\fi
+
+%\theoremstyle{block}
+%\newtheorem{EK}{Emacs Key}
+%\theoremstyle{definition}
+%\newtheorem{EC}{Emacs Configure}
+%\theoremstyle{example}
+%\newtheorem{IP}{Install Packages}
+
+\defverbatim[colored]\etags{%
+\begin{lstlisting}[frame=single, emph={find}, emphstyle={\color{blue}}]
+find . -name "*.py" -print | etags -
+\end{lstlisting}
+}
+
+% 设定不显示导航栏
+\setbeamertemplate{navigation symbols}{}
+
+% 设定底栏只显示页码
+%\setbeamertemplate{footline}[frame number]
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}[plain]
+  \frametitle{Agenda}
+  \begin{multicols}{2}
+  \setcounter{tocdepth}{2}
+  \tableofcontents
+  \end{multicols}
+\end{frame}
+
+\section{生命不息，奋斗不息！}
+\begin{frame}
+%	\frametitle{Richard Stallman}
+	\begin{figure}[http]
+    \centering
+    \includegraphics[width=14cm]{time.jpg}
+%    \caption{想成功就遵守}
+    \label{fig:time}
+    \end{figure}
+\end{frame}
+
+\section{四字真言}
+\begin{frame}{四字真言}
+%    \frametitle{四字真言}
+    \begin{columns}
+    \column{5cm}
+    \begin{itemize}
+        \item \textcolor{red}{健康生活}
+        \item \textcolor{red}{谦虚谨慎}
+        \item \textcolor{red}{勤俭节约}
+        \item \textcolor{red}{宽厚守信}
+    \end{itemize}
+    \column{5cm}
+    \begin{itemize}
+        \item \textcolor{red}{未雨绸缪}
+        \item \textcolor{red}{活跃思维}
+        \item \textcolor{red}{珍时学习}
+        \item \textcolor{red}{刚毅不懈}
+    \end{itemize}
+    \end{columns}
+\end{frame}
+\section{生活篇}
+\subsection{生活规律}
+\begin{frame}
+	\frametitle{作息规律}
+    \begin{beamercolorbox}[rounded=true,shadow=true,wd=12cm]{bluecyanbgcolor}
+    早晨: \textcolor{red}{06:00} 起床\\
+    \begin{itemize}
+        \item \textcolor{red}{6:00-6:30} 起床 \& 洗漱
+        \item \textcolor{red}{6:30-8:00} 看书
+    \end{itemize}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[rounded=true,shadow=true,wd=12cm]{blackorangebgcolor}
+    %\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+    中午: \textcolor{red}{12:30-13:00} 午休\\
+    %\end{beamerboxesrounded}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[rounded=true,shadow=true,wd=12cm]{redblackbgcolor}
+    晚上: \textcolor{orange}{23:30} 睡觉\\
+    \begin{itemize}
+    \item 看书学习
+    \item 思考 \& 处理问题
+    \item \textcolor{orange}{21:30} 如有需要，则进入研究阶段
+    \item \textcolor{orange}{23:00-23:30} 锻炼 ，比如：臂力，俯卧撑，仰卧起坐，手力，压腿等，然后洗漱。
+    \item \textcolor{orange}{23:30} 给明天做计划，而后入睡思考问题
+    \end{itemize}
+    \end{beamercolorbox}
+%    \begin{beamercolorbox}[rounded=true,shadow=true,wd=12cm]{redblackbgcolor}
+%    \begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+\end{frame}
+
+\begin{frame}
+	\frametitle{作息规律}
+	\begin{alertblock}{其他时间}
+    \begin{itemize}
+    \item \textcolor{green}{周六} 可07:00起，工作学习
+    \item \textcolor{green}{周日} 可08:00起，上午：洗衣服，处理杂事。下午：休息/娱乐/处理事情
+    \item 休息假期=\{1/2*假期\} （视情况而定）
+    \item 集聚/旅游/其他 - 社交/思考问题/认真听讲，发散思维
+    \item 走路 - 思考问题/认真观察
+    \item 其他：enjoy it!
+    \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\subsection{兴趣爱好}
+\begin{frame}
+\frametitle{兴趣爱好}
+\begin{itemize}
+    \item 听音乐
+    \item 爬山, 跑步
+    \item 看书
+\end{itemize}
+\end{frame}
+
+\subsection{生活习惯}
+\begin{frame}
+\frametitle{\textcolor{red}{生活习惯}}
+\begin{itemize}
+    \item \textcolor{red}{养成良好\&健康的生活习惯}
+    \item 作息有规律
+    \item 拒绝黄赌毒，确保身心健康
+    \item 干净整洁
+    \item 坐有相，站有姿，尽显大将风范
+\end{itemize}
+\end{frame}
+
+\section{做人做事篇}
+\subsection{做人}
+\begin{frame}
+\frametitle{做人}
+\begin{itemize}
+    \item 诚实守信, 雷厉风行
+    \item 思路清晰，逻辑严密又不失幽默
+    \item 放下面子，见什么人说什么话(厚黑学)
+    \item 自信—任你东南西北风
+    \item 沉着冷静心自怡, 成熟理智
+\end{itemize}
+\end{frame}
+
+\subsection{做事}
+\begin{frame}
+\frametitle{做事}
+\begin{itemize}
+    \item 高效
+    \item 有计划，有步骤
+\end{itemize}
+\end{frame}
+
+\section{学习篇}
+\begin{frame}{学习篇}
+\begin{itemize}
+    \item 学习内容: 书本知识 + 社会知识
+    \item 珍惜一切时间来学习思考, 贵在坚持
+    \item 活跃思维，发散思维，未雨绸缪
+\end{itemize}
+\end{frame}
+
+\iffalse
+\definecolor{bottomcolor}{rgb}{0.32,0.3,0.38}
+\definecolor{middlecolor}{rgb}{0.08,0.08,0.16}
+\setbeamertemplate{background canvas}[vertical shading]
+
+\setbeamercolor{title}{fg=yellow,bg=gray}
+\setbeamercolor{normal text}{fg=white,bg=black}
+
+\setbeamercolor{title}{fg=yellow,bg=gray}
+\setbeamerfont{title}{size=\LARGE}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamercolor{section in toc}{fg=yellow!80!gray}
+\fi
+
+\setbeamertemplate{itemize items}{\color{cyan}$\clubsuit$}
+%\setbeamertemplate{items}[ball]
+%\setbeamertemplate{items}[square]
+%\setbeamertemplate{itemize items}{\color{blue}$\bullet$}
+%\setbeamertemplate{itemize items}{\color{blue}$\checkmark$}
+%\setbeamertemplate{items}[triangle]
+%\setbeamertemplate{items}[circle]
+
+
+\section{其他Rules篇}
+\begin{frame}{其他Rules篇}
+\begin{itemize}
+    \item 要想别人尊重你，那么你首先要学会尊重别人
+    \item 说出的话必须经过脑子
+\end{itemize}
+\end{frame}
+
+\iffalse
+\begin{frame}[fragile]{抄录环境}
+这是一段抄录代码:\verb!\frame{hello beamer}!。
+\end{frame}
+\fi
+
+%\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+\setbeamertemplate{itemize items}{\color{red}$\checkmark$}
+%\setbeamertemplate{items}[ball]
+%\setbeamertemplate{items}[triangle]
+
+\section{感悟篇}
+\begin{frame}{感悟篇}
+\begin{itemize}
+    \item 要想别人尊重你，那么你首先要学会尊重别人
+    \item 说出的话必须经过脑子
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+    \item 不想让别人知道的事情就一定不要说
+\end{itemize}
+\end{frame}
+
+\setbeamertemplate{items}[ball]
+
+\section{人生宝典}
+\begin{frame}
+\frametitle{人生宝典}
+\begin{beamercolorbox}[rounded=true,shadow=true,wd=12cm]{redblackbgcolor}
+    一个人不管有多聪明，多能干，背景条件有多好，如果不懂得如何去做人、做事，那么他最终的结局肯定是失败。做人做事是一门艺术，更是一门学问。很多人之所以一辈子都碌碌无为，那是因为他活了一辈子都没有弄明白该怎样去做人做事。
+~\\
+    \begin{itemize}
+        \item 社会交往字诀
+        \item 形象塑造字诀
+        \item 自我提升字诀
+        \item 人际互动字诀
+        \item 解困渡厄字诀
+        \item 不败人生字诀
+    \end{itemize}
+\end{beamercolorbox}
+\end{frame}
+
+%\setbeamertemplate{itemize items}{\color{blue}$\bullet$}
+%\setbeamertemplate{itemize items}{\color{blue}$\checkmark$}
+%\setbeamertemplate{items}[triangle]
+\subsection{社会交往字诀}
+\begin{frame}
+\frametitle{社会交往字诀}
+\begin{itemize}
+    \item \textcolor{brown}{"谦"}字诀
+    \item \textcolor{brown}{"淡"}字诀
+    \item \textcolor{brown}{"俭"}字诀
+    \item \textcolor{brown}{"自"}字诀
+    \item \textcolor{brown}{"礼"}字诀
+    \item \textcolor{brown}{"正"}字诀
+\end{itemize}
+\end{frame}
+
+\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+%\setbeamertemplate{items}[ball]
+\subsubsection{"谦"字诀}
+\begin{frame}
+\frametitle{"谦"字诀}
+\noindent\handr~~处世唯"谦"字了得，若一味狂妄自负、骄傲自大，只会失去处世的根本，落得个孤苦伶仃、千夫所指的骂名下场。
+~\\
+~\\
+\begin{itemize}
+    \item 不可目中无人
+    \item 得意不要忘形
+    \item 有本事不必自夸
+    \item 请教不择人
+\end{itemize}
+\end{frame}
+
+\subsubsection{"淡"字诀}
+\begin{frame}
+\frametitle{"淡"字诀}
+\noindent\handr~~为人处世，交朋待友，对势利纷华，似乎不必太过于苛求，当以"淡"字当头。看淡些，看开些，人生也就豁然开朗，有滋有味了。 正如"平平淡淡才是真"。
+~\\
+~\\
+\begin{itemize}
+    \item 君子之交淡如水
+    \item 淡看人生，善待生命
+    \item 淡泊明志，莫为名利遮望眼
+    \item 减少心欲，满足心灵
+\end{itemize}
+\end{frame}
+
+\subsubsection{"俭"字诀}
+\begin{frame}
+\frametitle{"俭"字诀}
+\noindent\handr~~不懂得"俭"字的人，不知道如何成功，任何成功的事业都在于点滴的积累；不懂得"俭"字的人，只会丧失成功，过分的骄奢多败人品质。"俭以养德"，为人做事之良训。
+~\\
+~\\
+\begin{itemize}
+    \item 从节省生活费开始
+    \item "穷大方"不可取
+    \item 谨防变态的节俭：吝啬
+    \item 欲路勿染，俭以养德
+\end{itemize}
+\end{frame}
+
+\subsubsection{"自"字诀}
+\begin{frame}
+\frametitle{"自"字诀}
+\noindent\handr~~做一个有个性的人，给自己一点自信！成功的道路靠自己闯，美好的前途来自于自强自立，不屈服于任何权威，用自我的努力找到属于你的自尊。男儿立世，自己拍板！
+~\\
+~\\
+\begin{itemize}
+    \item 自强自立，与成功有约
+    \item 独品人生百态
+    \item 用自我来挑战权威
+    \item 自信—任你东南西北风
+\end{itemize}
+\end{frame}
+
+\subsubsection{"礼"字诀}
+\begin{frame}
+\frametitle{"礼"字诀}
+\noindent\handr~~生在礼仪之邦，做一个彬彬有礼之人。有礼之人会做人，有人缘，多朋友。有礼之人会做事，注重形象，有教养，不树敌，成功路上事事顺。
+~\\
+~\\
+\begin{itemize}
+    \item 以礼待人
+    \item 彬彬有礼，礼多人不怪
+    \item 注重礼仪着装，给人良好印象
+\end{itemize}
+\end{frame}
+
+\subsubsection{"正"字诀}
+\begin{frame}
+\frametitle{"正"字诀}
+\noindent\handr~~做一个正直的人，做一个人格健全完善的人，受人崇敬。做一个自私的人，做欺心的事，疾贤防能，与成功无缘。
+~\\
+~\\
+\begin{itemize}
+    \item 己所不欲，勿施于人
+    \item 嫉妒乃方正之人之大忌
+    \item 不做欺心事，本身是一种愉悦
+\end{itemize}
+\end{frame}
+
+%\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+\setbeamertemplate{items}[ball]
+
+\subsection{形象塑造字诀}
+\begin{frame}
+\frametitle{形象塑造字诀}
+\begin{itemize}
+    \item \textcolor{brown}{"志"}字诀
+    \item \textcolor{brown}{"时"}字诀
+    \item \textcolor{brown}{"勤"}字诀
+    \item \textcolor{brown}{"实"}字诀
+    \item \textcolor{brown}{"专"}字诀
+    \item \textcolor{brown}{"慎"}字诀
+\end{itemize}
+\end{frame}
+
+\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+%\setbeamertemplate{items}[ball]
+
+\subsubsection{"志"字诀}
+\begin{frame}
+\frametitle{"志"字诀}
+\noindent\handr~~给自己一根足够长的杠杆，希望转动地球。给自己的人生立个志愿，树个目标，树个偶像，脚踏实地，成功的意识需要培养，先立志，再与成功约会。
+~\\
+~\\
+\begin{itemize}
+    \item 度德量力，以志立身
+    \item 先立志，有志就有希望
+    \item 培养成功意识：立志为王
+    \item 树立偶像，改变自己
+\end{itemize}
+\end{frame}
+
+\subsubsection{"时"字诀}
+\begin{frame}
+\frametitle{"时"字诀}
+\noindent\handr~~做人要惜时，做事要守时。塑造自己的形象，现代人离不开时间观念。合理安排自己的时间，有效利用自己的时间，守时、惜时、不拖延。 切记：时间就是金钱。
+~\\
+~\\
+\begin{itemize}
+    \item 一秒值万金
+    \item 别漠视业余时间
+    \item 盗窃他人时间，等于谋财害命
+    \item 按重要性办事，更能有效利用时间
+\end{itemize}
+\end{frame}
+
+\subsubsection{"勤"字诀}
+\begin{frame}
+\frametitle{"勤"字诀}
+\noindent\handr~~多一些努力，便多一些成功的机会。无数事实证明：成功的最短途径是勤奋。不要光耍嘴皮子，不要好逸恶劳，勤字当头，苍天不负有心人，天道酬勤！
+~\\
+~\\
+\begin{itemize}
+    \item 成功的最短途径：勤奋
+    \item 多一些努力，多一些机会
+    \item 勤于行动，胜于勤说
+\end{itemize}
+\end{frame}
+
+\subsubsection{"实"字诀}
+\begin{frame}
+\frametitle{"实"字诀}
+\noindent\handr~~踏踏实实做人，实实在在办事。任何一个双手插在口袋里的人，都爬不上成功的梯子。给人留下一个实在的形象，给自己的成功增添一份夯实的基础，从实际出发，对自己负责。
+~\\
+~\\
+\begin{itemize}
+    \item 敬业，实干家的成功保障
+    \item 把每一份工作都做好
+    \item 双手插在口袋里的人，爬不上成功的梯子
+\end{itemize}
+\end{frame}
+
+\subsubsection{"专"字诀}
+\begin{frame}
+\frametitle{"专"字诀}
+\noindent\handr~~有专才有恒，有恒才有我。 你生活在一个知识大爆炸的时代，如果你是一个天才，不专心就成了你的不幸；如果你资质平凡，请不要悲观，只要你下定决心一辈子做好一件事，你就能成功。年轻人，千万别给人留下一个朝三暮四的形象。
+~\\
+~\\
+\begin{itemize}
+    \item 把所有的鸡蛋放入一个篮子
+    \item 多才多艺，莫如练就"独门暗器"
+    \item 专一，让劣势变成优势
+\end{itemize}
+\end{frame}
+
+\subsubsection{"慎"字诀}
+\begin{frame}
+\frametitle{"慎"字诀}
+\noindent\handr~~人生漫长，又短暂，关键的就几步。人性丛林，职场事业，利益多多、诱惑多多。老成不怕多，凡事应多三思，不怕一万，就怕万一。一旦伸错手，入错行，做错事，于名誉，于事业，于形象皆有不救之危。 "慎"之！
+~\\
+~\\
+\begin{itemize}
+    \item 千万别入错行
+    \item 想好了你再"跳"
+    \item 不要草率行事
+\end{itemize}
+\end{frame}
+
+%\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+\setbeamertemplate{items}[ball]
+
+\subsection{自我提升字诀}
+\begin{frame}
+\frametitle{自我提升字诀}
+\begin{itemize}
+    \item \textcolor{brown}{"硬"}字诀
+    \item \textcolor{brown}{"小"}字诀
+    \item \textcolor{brown}{"锐"}字诀
+    \item \textcolor{brown}{"创"}字诀
+    \item \textcolor{brown}{"通"}字诀
+    \item \textcolor{brown}{"言"}字诀
+\end{itemize}
+\end{frame}
+
+\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+%\setbeamertemplate{items}[ball]
+
+\subsubsection{"硬"字诀}
+\begin{frame}
+\frametitle{"硬"字诀}
+\noindent\handr~~做人难，做事难，面对千难万阻，要提升自我，不来点"硬"的怎么行？如果事有勉强，应该敢于说"不"；如果是正当利益，则应当仁不让；甚至，有时还得来点霸王硬上弓，要有"脸皮厚"的时候，也要有"头皮硬"的时候。
+~\\
+~\\
+\begin{itemize}
+    \item 拒绝是一门艺术
+    \item 该我的，就不要客气
+    \item 怒发冲冠之功
+    \item 厚脸皮做人，硬头皮做事
+\end{itemize}
+\end{frame}
+
+\subsubsection{"小"字诀}
+\begin{frame}
+\frametitle{"小"字诀}
+\noindent\handr~~一家海鲜连锁餐厅的老板很可能当初是水产市场练滩儿的，而一家皮鞋连锁店的老板当初可能是擦鞋的。欲做大事，赚大钱，必先做小事，赚小钱，放下架子，舍得小利。从细微处入手，先扫一屋，再扫天下！
+~\\
+~\\
+\begin{itemize}
+    \item 一屋不扫，何以扫天下
+    \item 先做小事，赚小钱
+    \item 一枚钉子改变一个人的一生
+\end{itemize}
+\end{frame}
+
+\subsubsection{"锐"字诀}
+\begin{frame}
+\frametitle{"锐"字诀}
+\noindent\handr~~小小麻雀，飞飞跳跳、争分夺秒，不停地寻觅食物。人生亦如此，面对残酷竞争，惟有锐意进取，做一个好先锋，把下一个进球当目标，敢于冒险，敢于闯荡，守株待兔的事情毕竟很渺茫。
+~\\
+~\\
+\begin{itemize}
+    \item 不以现有成就为满足
+    \item 锐意追求，绝不退缩
+    \item 锐气不可抛，成功是迟早
+\end{itemize}
+\end{frame}
+
+\subsubsection{"创"字诀}
+\begin{frame}
+\frametitle{"创"字诀}
+\noindent\handr~~提升自我，就要有胆有识去超越自我。何谓超越？超越就是吃螃蟹，就是创新。同时创新就意味着冒险，所谓富贵险中求。想人家想不到的，做别人不敢做的，敢为天下先，在于思维的转换。
+~\\
+~\\
+\begin{itemize}
+    \item 敢为天下先
+    \item 打破规则的创意
+    \item 人弃我取也能创奇迹
+    \item 逆向思维的攻守之道
+\end{itemize}
+\end{frame}
+
+\subsubsection{"通"字诀}
+\begin{frame}
+\frametitle{"通"字诀}
+\noindent\handr~~穷则思变，变则通。识时务者为俊杰，通机变者为英豪。通往成功的道路不是一条，又何必在一棵树上吊死呢？抓住成功的关键，东方不亮西方亮，不管它是黑猫白猫，重要的是它能否逮"耗子"。
+~\\
+~\\
+\begin{itemize}
+    \item 巧妙地以变应变
+    \item 条条大道通罗马
+    \item 成功在于通，有通才有赢
+\end{itemize}
+\end{frame}
+
+\subsubsection{"言"字诀}
+\begin{frame}
+\frametitle{"言"字诀}
+\noindent\handr~~把赞扬送给别人，就像把食物施舍给饥饿的乞丐一样。古往今来，不知有多少人，凭着三寸不烂之舌，改变了自己平凡的命运。说话幽默，找共同语言……一个"言"字，一生受用。
+~\\
+~\\
+\begin{itemize}
+    \item 投其所好找话题
+    \item 恭维是最好的"润滑剂"
+    \item 成功人生，幽默机智
+    \item "流行语"为你添姿着色
+\end{itemize}
+\end{frame}
+
+%\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+\setbeamertemplate{items}[ball]
+
+\subsection{人际互动字诀}
+\begin{frame}
+\frametitle{人际互动字诀}
+\begin{itemize}
+    \item \textcolor{brown}{"宽"}字诀
+    \item \textcolor{brown}{"和"}字诀
+    \item \textcolor{brown}{"信"}字诀
+    \item \textcolor{brown}{"帮"}字诀
+    \item \textcolor{brown}{"敬"}字诀
+    \item \textcolor{brown}{"交"}字诀
+\end{itemize}
+\end{frame}
+
+\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+%\setbeamertemplate{items}[ball]
+
+\subsubsection{"宽"字诀}
+\begin{frame}
+\frametitle{"宽"字诀}
+\noindent\handr~~人际互动，应着眼于未来，不念旧恶。原谅别人，是对待自己的最好方式——为你的仇敌而怒火中烧，烧伤的是你自己。做人做事，心胸不可太狭隘。海纳百川，靠一棵宽容的心！
+~\\
+~\\
+\begin{itemize}
+    \item 宽恕你的敌人
+    \item 宽容做人，宽容成事
+    \item 乐于忘记，不念旧恶
+\end{itemize}
+\end{frame}
+
+\subsubsection{"和"字诀}
+\begin{frame}
+\frametitle{"和"字诀}
+\noindent\handr~~在人海中，如果我们不想孤立，那么就学会如何与人相处吧！林子大了，什么鸟都有，不要求你喜欢所有的人，但同时世上也没有什么最牛的人。 和为贵嘛，就要互相留台阶，大家给面子。
+~\\
+~\\
+\begin{itemize}
+    \item 为他人着想，为自己铺路
+    \item 你给别人留面子，别人给你做好事
+    \item 夫妻之道，亦和亦智
+\end{itemize}
+\end{frame}
+
+\subsubsection{"信"字诀}
+\begin{frame}
+\frametitle{"信"字诀}
+\noindent\handr~~有多少人信任你，你就拥有多少次成功的机会，"信"是什么东西？信是一种人格的力量，是超越金钱的友情，是了解、是欣赏、是覆水，具有不可逆转性。所以，言必行，行必果，能帮的忙则帮，但不可轻易许诺！
+~\\
+~\\
+\begin{itemize}
+    \item 能帮则帮，不轻易许诺
+    \item 言而有信，做人讲原则
+    \item 做事先做人，做人先取信
+    \item 信誉基石，生死友情
+\end{itemize}
+\end{frame}
+
+\subsubsection{"帮"字诀}
+\begin{frame}
+\frametitle{"帮"字诀}
+\noindent\handr~~"好风凭借力，送我上青天"。人际交往，互利互惠。帮助别人，就是在为自己的人情信用卡储蓄，特别是在人患难之际施于援手，救落难英雄于困顿。真心助人，其回报不言而喻。
+~\\
+~\\
+\begin{itemize}
+    \item 助人发财，自己沾光
+    \item 好风凭借力，借梯能登天
+    \item 掌握时机，拉人一把
+\end{itemize}
+\end{frame}
+
+\subsubsection{"敬"字诀}
+\begin{frame}
+\frametitle{"敬"字诀}
+\noindent\handr~~人要面子树要皮。人存在于社会上，要扮演各种各样角色，特别是在互相的交往中，需要一定的尊严来支撑，这是人性的弱点。明白了这点，才能体会到"敬"字的必要性。
+~\\
+~\\
+\begin{itemize}
+    \item 为尊者讳，为上司讳
+    \item 在失意者面前不谈你的得意
+    \item 尊敬对方的"闪光点"
+\end{itemize}
+\end{frame}
+
+\subsubsection{"交"字诀}
+\begin{frame}
+\frametitle{"交"字诀}
+\noindent\handr~~人情冷暖、世态炎凉，平常朋友平常过。交朋接友，不可急功近利，友情投资，宜走长线，拜拜冷庙，烧烧冷灶，平时多烧香，哪怕是只言片语的问候，亦是交友之道。
+~\\
+~\\
+\begin{itemize}
+    \item 闲时多烧香，急时有人帮
+    \item 友情投资，宜走长线
+    \item 拜冷庙，烧冷灶，交落难英雄
+\end{itemize}
+\end{frame}
+
+%\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+\setbeamertemplate{items}[ball]
+
+\subsection{解困渡厄字诀}
+\begin{frame}
+\frametitle{解困渡厄字诀}
+\begin{itemize}
+    \item \textcolor{brown}{"坚"}字诀
+    \item \textcolor{brown}{"谋"}字诀
+    \item \textcolor{brown}{"屈"}字诀
+    \item \textcolor{brown}{"静"}字诀
+    \item \textcolor{brown}{"乐"}字诀
+    \item \textcolor{brown}{"靠"}字诀
+\end{itemize}
+\end{frame}
+
+\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+%\setbeamertemplate{items}[ball]
+
+\subsubsection{"坚"字诀}
+\begin{frame}
+\frametitle{"坚"字诀}
+\noindent\handr~~面对挫折与困难，铭记丘吉尔的名言："永远，永远，永远不要放弃！"其实世界上并没有什么幸运的事，就是有，也是坚持的结果。为了最后的胜利，应以坚毅不拔之志，面对种种暂时之屈辱，执着追求，不到黄河心不死！
+~\\
+~\\
+\begin{itemize}
+    \item 厚积薄发，耐得寂寞
+    \item 谁笑到最后，谁笑得最甜
+    \item 执着追求，永不放弃
+    \item 不到黄河心不死
+\end{itemize}
+\end{frame}
+
+\subsubsection{"谋"字诀}
+\begin{frame}
+\frametitle{"谋"字诀}
+\noindent\handr~~做人有困惑，做事有困境，面对"山重水复"之关卡，光有坚强的毅志不行，硬闯也不行。解决难题靠的是脑袋，脑袋产生思考，让思考发威，在出人意料之处轻松解决问题。
+~\\
+~\\
+\begin{itemize}
+    \item 巧妇难为无米之炊
+    \item 从"山重水复"到"柳暗花明"
+    \item 思考的威力
+\end{itemize}
+\end{frame}
+
+\subsubsection{"屈"字诀}
+\begin{frame}
+\frametitle{"屈"字诀}
+\noindent\handr~~要摆脱人与事的困境，就难免要求人，求人就难免要低三下四，但着眼于未来的成功，即使像蟑螂一样的生活也应在所不惜，风水毕竟轮流转。放下架子，该屈就屈，能屈能伸，以屈为伸方为英雄！
+~\\
+~\\
+\begin{itemize}
+    \item 像蟑螂一样生活
+    \item 放下身段，前方是大道
+    \item 你敬我一尺，我敬你一丈
+    \item 低人一级"屈"不死人
+\end{itemize}
+\end{frame}
+
+\subsubsection{"静"字诀}
+\begin{frame}
+\frametitle{"静"字诀}
+\noindent\handr~~"不在沉默中爆发，就在沉默中灭亡！"凡遇大事需静气，平心静气是一种境界，一种气度，一种修养。冷静之中的决定往往是摆脱困境的最佳方案，同时冷静也是一种智慧，以静待变，乱中取胜！
+~\\
+~\\
+\begin{itemize}
+    \item 把冷板凳坐成经理椅
+    \item 心宁智生，智生事成
+    \item 沉着冷静心自怡
+    \item 沉得住气方为人杰
+\end{itemize}
+\end{frame}
+
+\subsubsection{"乐"字诀}
+\begin{frame}
+\frametitle{"乐"字诀}
+\noindent\handr~~世上没有绝对幸福的人，只有不肯快乐的心。人生苦短，与其事事张弓拔弩，不如"幽它一默"。记住，成功是从微笑开始的，人生不如意事常八九，乐观点，自己营造快乐，学会轻松解决难题。
+~\\
+~\\
+\begin{itemize}
+    \item 成功从微笑开始
+    \item 学会营造快乐
+    \item 学会轻松愉快地解决难题
+    \item 世上没有绝对幸福的人，只有不肯快乐的心
+\end{itemize}
+\end{frame}
+
+\subsubsection{"靠"字诀}
+\begin{frame}
+\frametitle{"靠"字诀}
+\noindent\handr~~人生不等不靠，没错，天上不会掉馅饼，守株待兔饿死人，但一点不靠也不行，亲戚朋友、同学、老乡，这是一种"人力资源"，谁人没个三灾六难，能靠则靠，靠不上创造条件也要靠！
+~\\
+~\\
+\begin{itemize}
+    \item 让朋友成为你的靠山
+    \item 出门落难靠老乡
+    \item 亲戚亲戚，越走越亲
+    \item 恰同学少年，该靠靠一把
+\end{itemize}
+\end{frame}
+
+%\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+\setbeamertemplate{items}[ball]
+
+\subsection{不败人生字诀}
+\begin{frame}
+\frametitle{不败人生字诀}
+\begin{itemize}
+    \item \textcolor{brown}{"愚"}字诀
+    \item \textcolor{brown}{"忍"}字诀
+    \item \textcolor{brown}{"退"}字诀
+    \item \textcolor{brown}{"圆"}字诀
+    \item \textcolor{brown}{"危"}字诀
+    \item \textcolor{brown}{"装"}字诀
+\end{itemize}
+\end{frame}
+
+\setbeamertemplate{itemize items}{\color{red}$\bullet$}
+%\setbeamertemplate{items}[ball]
+
+\subsubsection{"愚"字诀}
+\begin{frame}
+\frametitle{"愚"字诀}
+\noindent\handr~~学学猫头鹰，睁一只眼，闭一只眼。你说我糊涂，其实我不傻！只是世事多变幻，创业难，败家快，人说水至清则无鱼，人至察则无徒。其实是，明哲保身，大智者往往大愚，聪明者多，能过"愚"字关鲜矣！
+~\\
+~\\
+\begin{itemize}
+    \item 糊涂人聪明一世
+    \item 不要以为自己比别人聪明
+    \item 处事不要太认真
+    \item 谁是英雄？
+\end{itemize}
+\end{frame}
+
+\subsubsection{"忍"字诀}
+\begin{frame}
+\frametitle{"忍"字诀}
+\noindent\handr~~真的英雄，何必气短，善始善终，方为不败！忍能保身，忍能成事，忍是大智，大勇，更是大福！忍是厚，忍是黑，忍小人，忍豪强，忍天下难忍之事，不做性情中人，成常人难成之事。
+~\\
+~\\
+\begin{itemize}
+    \item 忍是大智大勇大福
+    \item 不做性情中人
+    \item 不败人生，忍者无敌
+\end{itemize}
+\end{frame}
+
+\subsubsection{"退"字诀}
+\begin{frame}
+\frametitle{"退"字诀}
+\noindent\handr~~久历江湖，练达人情之人都守一个"退"字。退是一种谋略，退是一种交换，更是一种维系生存的手段。哲人说的好，"不要把痰吐在井里，哪天你口渴的时侯，也要来井边喝水的。"
+~\\
+~\\
+\begin{itemize}
+    \item 用心计较般般错，退步思量事事顺
+    \item 拒绝妥协，就是拒绝成功
+    \item 惹不起，躲得起
+\end{itemize}
+\end{frame}
+
+\subsubsection{"圆"字诀}
+\begin{frame}
+\frametitle{"圆"字诀}
+\noindent\handr~~方圆做人，八面玲珑；圆满做事，事事顺心。人心叵测，凡事最好留一手，有闲时，可研究一下"模糊哲学"，人生这套马车，如若安上方方正正的轮子，你没听说过，我也没听说过，寸步难行嘛！
+~\\
+~\\
+\begin{itemize}
+    \item 方圆做人，圆满做事
+    \item 做老二，不要做老大
+    \item 人情练达即文章，处世圆通慎言语
+\end{itemize}
+\end{frame}
+
+\subsubsection{"危"字诀}
+\begin{frame}
+\frametitle{"危"字诀}
+\noindent\handr~~"豪华尽出成功后，逸乐安知与祸双？"历史教训如此，平头百姓亦如此。居家过日，工作职场等都逃不过一个"危"字，人无远虑，必有近忧。
+~\\
+~\\
+\begin{itemize}
+    \item 远虑在先，近处无危
+    \item 郭子仪屏退侍女免祸患
+    \item 上山下乡当农民——范蠡富贵终身
+\end{itemize}
+\end{frame}
+
+\subsubsection{"装"字诀}
+\begin{frame}
+\frametitle{"装"字诀}
+\noindent\handr~~人生在世一台戏，你方唱罢我上场，不管你会不会演，就看你会不会装。充英雄容易，扮弱者难。俗话说得好，枪打出头鸟，不怕贼偷就怕贼惦记着，当你还不具备实力时，请把你过剩的才华藏起来！
+~\\
+~\\
+\begin{itemize}
+    \item 故意示弱有好处
+    \item 用"拟态"和"保护色"
+    \item 成功需要诈死与佯败
+\end{itemize}
+\end{frame}
+
+\section{祝你成功}
+\begin{frame}{祝你成功！}
+%	\frametitle{Richard Stallman}
+	\begin{figure}[http]
+    \centering
+    \includegraphics[width=10cm]{run_time.jpg}
+%    \caption{想成功就遵守}
+    \label{fig:run_time}
+    \end{figure}
+\end{frame}
+
+% Beamer 技巧篇
+\iffalse
+\section{Beamer技巧篇}
+
+% 下面的代码修改了目录页中节标题的模板和颜色:
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamercolor{section in toc}{fg=yellow!80!gray}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+%\tableofcontents[currentsection,currentsubsection,subsectionstyle=hide]
+\tableofcontents[currentsubsection,subsectionstyle=hide]
+\end{frame}
+
+\begin{frame}{无序列表样式}
+\setbeamertemplate{itemize items}[default]
+    \begin{itemize}
+        \item default
+    \end{itemize}
+
+\setbeamertemplate{itemize items}[triangle]
+    \begin{itemize}
+        \item triangle
+    \end{itemize}
+
+\setbeamertemplate{itemize items}[circle]
+    \begin{itemize}
+        \item circle
+    \end{itemize}
+
+\setbeamertemplate{itemize items}[square]
+    \begin{itemize}
+        \item square
+    \end{itemize}
+
+\setbeamertemplate{itemize items}[ball]
+    \begin{itemize}
+        \item ball
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{无序列表}{这是一个副标题}
+    \begin{itemize}
+        \hilite <1> \item Beamer颜色参考:\textcolor{black}black,\textcolor{blue}{blue},\textcolor{red}{red},\textcolor{magenta}{magenta},\textcolor{green}{green},\textcolor{cyan}{cyan},\textcolor{yellow}{yellow},\textcolor{white}{white}
+        \hilite <2-3> \item Beamer 演示中全部可以使用的字号如下:8pt、9pt、10pt、11pt、12pt、14pt、17pt、20pt,默认为 11pt。建议在较大的场合演示时使用大号的字体,例如:\\documentclass[14pt]\{beamer\}
+        \hilite <3> \item 无序列表三
+        \hilite <4-> \item 无序列表四
+        \hilite <5> \item 无序列表五
+        \hilite <-6> \item 无序列表六
+        \hilite <7> \item 无序列表七
+        \hilite <8> \item 无序列表八
+        \hilite <9> \item 无序列表九
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{有序列表样式}
+\setbeamertemplate{enumerate items}[default]
+    \begin{enumerate}[<+-|alert@+>]
+        \item default
+    \end{enumerate}
+
+\setbeamertemplate{enumerate items}[circle]
+
+    \begin{enumerate}[<+-|alert@+>]
+        \item circle
+    \end{enumerate}
+
+\setbeamertemplate{enumerate items}[square]
+
+    \begin{enumerate}[<+-|alert@+>]
+        \item square
+    \end{enumerate}
+
+\setbeamertemplate{enumerate items}[ball]
+
+    \begin{enumerate}[<+-|alert@+>]
+        \item ball
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{有序列表}
+    \begin{enumerate}[<+-|alert@+>]
+        \item 有序列表一
+        \item 有序列表二
+        \item 有序列表三
+        \item 有序列表四
+        \item 有序列表五
+        \item 有序列表六
+        \item 有序列表七
+        \item 有序列表八
+        \item 有序列表九
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{原地替换}
+     \only<1>{\begin{itemize}
+     \item item1
+     \item item2
+     \end{itemize}}
+
+     \only<2>{\begin{itemize}
+     \item item3
+     \item item4
+     \end{itemize}}
+\end{frame}
+
+\begin{frame}[plain]
+        \begin{spacing}{1.5}
+        \begin{center}
+        \Huge{\textbf{Thanks for your attention!}}
+
+        \Huge{\textit{Any questions?}}
+\end{center}
+\end{spacing}
+\end{frame}
+
+\begin{frame}{图片}
+    \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=8cm]{power.png}
+    \caption{Powered by}
+    \label{fig:power}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{表格}
+    \begin{table}
+    \centering
+    \caption{一个表格示例}
+    \rowcolors[]{1}{blue!20}{blue!10}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \rowcolor{blue!50}学号&姓名&年龄&成绩\\
+    \hline
+    001 & 丁一 & 25 & 91\\
+    002 & 刘二 & 24 & 89\\
+    003 & 张三 & 25 & 90\\
+    004 & 李四 & 24 & 95\\
+    005 & 王五 & 25 & 93\\
+    006 & 赵六 & 26 & 88\\
+    007 & 钱七 & 25 & 86\\
+    008 & 王八 & 24 & 89\\
+    009 & 孙九 & 25 & 90\\
+    \hline
+    \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{分栏}
+        \begin{columns}
+        \column{3cm}
+        这是第一栏的文字；栏宽3cm。
+        \column{5cm}
+        这是第二栏的文字；栏宽5cm。
+        \end{columns}
+\end{frame}
+
+\begin{frame}{方程}
+        \begin{equation}
+        E=mc^2
+        \label{emc}
+        \end{equation}
+\end{frame}
+
+\begin{frame}{描述列表环境}
+\begin{description}
+    \item[红色] 热情、活泼、温暖、幸福
+    \item[绿色] 新鲜、平静、安逸、柔和
+    \item[蓝色] 深远、永恒、沉静、寒冷
+\end{description}
+\end{frame}
+
+%下面的代码修改了区块环境的样式:
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor{block title}{fg=yellow,bg=gray!50!black}
+\setbeamercolor{block body}{bg=gray}
+
+\begin{frame}{块}
+    \begin{block}{重要例子}
+    2012年12月21日是世界末日。
+    \end{block}
+
+    \begin{alertblock}{重要提醒}
+    2012年12月21日是世界末日。
+    \end{alertblock}
+
+    \begin{exampleblock}{重要例子}
+    2012年12月21日是世界末日。
+    \end{exampleblock}
+
+    \begin{theorem}
+    微积分基本公式:$\int_a^b f(x)\mathrm{d}x=F(b)-F(a)$。
+    \end{theorem}
+
+    \begin{proof}
+    令 $g(x)=e^x-x-1$。则当 $x>1$ 时, 有 $g'(x)=e^x-1>0$,
+    因此 $g(x)>g(1)=0$。即有 $x>1$ 时 $e^x>1+x$。
+    \end{proof}
+\end{frame}
+
+%下面的代码修改了正文字体的样式:
+\setbeamercolor{normal text}{fg=red,bg=gray}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamercolor{frametitle}{fg=yellow!70!gray}
+
+\begin{frame}{修改正文字体}
+~\\
+~\\
+~\\
+~\\
+This is a test
+\end{frame}
+
+\begin{frame}{Beamer功能}
+\begin{itemize}
+    \item 功能强大,各种侧栏、顶栏、底栏,导航栏一应俱全。
+    \item 定制灵活,可以单独改变任何元素的结构,颜色和字体。
+    \item 效果多样,支持各种各样的过渡效果并可以精确控制。
+    \item 使用方便,可以用 latex,pdflatex 及 xelatex 编译。
+\end{itemize}
+\end{frame}
+
+\begin{frame}{样式定制}
+Beamer 的每个演示主题实际上都是由外部主题、内部主题、颜色主题和字体主题这四种细分主题组合而成的。如果要对演示主题作更加细致地选择,可以按照下面这四种细分主题自由组合:
+
+\begin{itemize}
+    \item 外部主题,用 \\usebeameroutertheme 命令;
+    \item 内部主题,用 \\usebeamerinnertheme 命令;
+    \item 颜色主题,用 \\usebeamercolortheme 命令;
+    \item 字体主题,用 \\usebeamerfonttheme 命令。
+    \item 参考网站: \url{http://deic.uab.es/~iblanes/beamer_gallery/} and \url{http://www.hartwork.org/beamer-theme-matrix/}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{外部主题}
+外部主题设定演示文稿是否有顶栏、底栏和侧栏,以及它们的结构,可以用 \\useoutertheme\{主题名\} 来选择,其中主题名有如下这些选择:
+
+\begin{columns}
+    \column{3cm}
+    \begin{itemize}
+        \item default
+        \item infolines
+        \item miniframes
+        \item sidebar
+        \item smoothbars
+    \end{itemize}
+
+    \column{5cm}
+    \begin{itemize}
+        \item split
+        \item shadow
+        \item tree
+        \item smoothtree
+    \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{内部主题}
+内部主题设定演示文稿正文内容(例如标题、列表、定理等)的样式,可以用 \\useinnertheme\{主题名\} 来选择,其中主题名有如下这些选择:
+\begin{itemize}
+    \item default
+    \item circles
+    \item rectangles
+    \item rounded
+\end{itemize}
+\end{frame}
+
+\begin{frame}{颜色主题}
+颜色主题设定演示文稿的各部分各结构各元素的配色,可以用\\usecolortheme\{主题名\} 来选择,其中主题名有这些选择:
+
+\begin{description}
+    \item [基本颜色] default、sidebartab、structure;
+    \item [完整颜色] albatross(信天翁)、beaver(海狸)、beetle(甲壳虫)、crane(鹤)、dove(鸽子)、fly(苍蝇)、seagull(海鸥)、wolverine(狼獾);
+    \item [内部颜色] lily(百合)、orchid(兰花)、rose(玫瑰);
+    \item [外部颜色] dolphin(海豚)、seahorse(海马)、whale(鲸鱼)。
+\end{description}
+\end{frame}
+
+\begin{frame}{字体主题}
+字体主题设定演示文稿的字体,可以用 \\usefonttheme\{主题名\} 命令来选择,其中主题名有如下这些选择:
+\begin{itemize}
+    \item default
+    \item serif
+    \item structurebold
+    \item structureitalicserif
+    \item structuresmallcapsserif
+\end{itemize}
+\end{frame}
+
+\fi
+
+\end{document}
