@@ -1,6 +1,5 @@
 \input{beamer_head}
 
-
 \usepackage{bbding}% 手势 \HandRight \HandLeft %\FiveStar \FourStar \SixStar
 \newcommand{\handr}{\textcolor{magenta}{\HandRight}} % 自定义\handr
 
@@ -121,6 +120,34 @@ some text
     \item [丽]丽理
 \end{description}
 
+% beamer button
+  \begin{itemize}
+  \item Use \textbf{hypertarget} add hyper link.\\
+    $\backslash hypertarget<\mbox{overlay-specification}>\{\mbox{target-name}\{\mbox{text}\}$
+    \hyperlink{jumptosecond}{\beamergotobutton{Jump to second slide}}
+    \hypertarget<2>{jumptosecond}{}
+  \item \beamerbutton{beamerbutton}
+  \item \beamerskipbutton{beamerskipbutton}
+  \item \beamerreturnbutton{beamerreturnbutton}
+  \end{itemize}
+
+% switch action
+\section{Graphics, Animations, sounds, and Slide Transitions }
+\frame{
+  \frametitle{\secname}
+  \begin{itemize}
+  \item Graphics \\
+    \includegraphics<1>{pku-logo.pdf}
+    \includegraphics<2>{pku-tower.pdf}
+    \pgfuseimage<3>{logo}
+  \item Animations \\
+    \movie[externalviewer,label=mymovie,width=1in,height=0.8in,poster]{}{movie.avi}
+%    \hyperlinkmovie[play]{mymovie}{Play}
+  \item Sound
+    \movie[externalviewer,autostart]{Here's some music}{turky.mp3}
+  \end{itemize}
+}
+
 \fi
 %\setbeamercolor{frametitle}{fg=green}
 % 使用 \part,\section,\subsection,subsubsection 等命令组织文档结构
@@ -131,7 +158,7 @@ some text
 \begin{document}
 
 \logo{\includegraphics[height=0.09\textwidth]{lkong.png}}
-\title[\textcolor{red}{请遵守!}(依心而变)]{\textcolor{red}{Life Rules}}
+\title[\textbf{\textcolor{red}{请遵守!}}(依心而变)]{\textcolor{red}{Life Rules}}
 \author[智慧人生]{Lingfei Kong}
 \institute[Running]{未雨绸缪}
 \date{January 01, 2015}
@@ -184,6 +211,7 @@ some text
   \end{frame}
 }
 \fi
+
 \iffalse
 \AtBeginSubsubsection[]
 {
@@ -244,10 +272,12 @@ find . -name "*.py" -print | etags -
 
 \section{四字真言}
 \begin{frame}{四字真言}
+    \transdissolve
 %    \frametitle{四字真言}
     \begin{columns}
     \column{5cm}
     \begin{itemize}
+%        \transblindshorizontal<1>
         \item \textcolor{red}{健康生活}
         \item \textcolor{red}{谦虚谨慎}
         \item \textcolor{red}{勤俭节约}
@@ -1332,6 +1362,32 @@ Beamer 的每个演示主题实际上都是由外部主题、内部主题、颜�
     \item structuresmallcapsserif
 \end{itemize}
 \end{frame}
+
+\frame[<+->]{
+  \frametitle{Slide Transitions}
+  \begin{enumerate}
+  \item Horizontal blinds
+    \transblindshorizontal<1>
+  \item Vertical blinds
+    \transblindsvertical<2>
+  \item Moving to the center from all four sides
+    \transboxin<3>
+  \item Moving from the center to four sides
+    \transboxout<4>
+  \item Dissolve
+    \transdissolve<5>
+  \item Glitter
+    \transglitter<5>
+  \item Split verticalin
+    \transsplitverticalin<7>
+  \item Split verticalout
+    \transsplitverticalout<8>
+  \item wipe
+    \transwipe<9>
+  \item transduration
+    \transduration<10>{1}
+  \end{enumerate}
+}
 
 \fi
 
